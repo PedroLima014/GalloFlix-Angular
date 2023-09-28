@@ -9,7 +9,7 @@ import { MovieApiService } from 'src/app/services/movie-api.service';
 })
 export class MovieDetailsComponent {
 
-  constructor(private service:MovieApiService, private router:ActivatedRoute) {}
+  constructor(private service:MovieApiService, private router:ActivatedRoute) { }
 
   movieResult: any;
   movieVideoResult: any;
@@ -24,7 +24,7 @@ export class MovieDetailsComponent {
 
   getMovie(id:any){
     this.service.movieDetails(id).subscribe((result)=>{
-      console.log(result, 'movieDetails#');
+      //console.log(result, 'movieDetails#');
       this.movieResult = result;
     });
   }
@@ -38,14 +38,13 @@ export class MovieDetailsComponent {
         }
       });
       console.log(this.movieVideoResult, 'movieVideo#');
-      
     });
   }
 
   getCast(id:any){
     this.service.movieCast(id).subscribe((result)=>{
-      console.log(this.movieCastResult, 'movieVideo#');
       this.movieCastResult = result.cast;
+      console.log(this.movieCastResult, 'movieVideo#');
     });
   }
 }
